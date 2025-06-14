@@ -19,29 +19,32 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    console.log({ formData });
-    const BaseURL = "http://localhost:5050/api";
 
-    try {
-      const res = await axios.post(`${BaseURL}/contact`, formData);
-      console.log({ res });
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+  console.log({ formData });
 
-      toast.success(res.data.message);
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Something went wrong");
-      console.log({ error });
-    } finally {
-      setLoading(false);
-    }
-  };
+  const BaseURL = "http://localhost:5050/api";
+
+  try {
+    const res = await axios.post(`${BaseURL}/contact`, formData);
+    console.log({ res });
+
+    toast.success(res.data.message);
+    setFormData({ name: "", email: "", message: "" });
+  } catch (error: any) {
+    toast.error(error.response?.data?.message || "Something went wrong");
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <section className="py-12 px-6 bg-gray-900 text-white">
@@ -69,15 +72,15 @@ const Contact = () => {
             className="w-full p-4 bg-gray-800 rounded-lg"
             required
           />
-          <textarea
-            name="message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            className="w-full p-4 bg-gray-800 rounded-lg"
-            required
-          />
+         <textarea
+  name="message"
+  rows={5}
+  value={formData.message}
+  onChange={handleChange}
+  placeholder="Your Message"
+  className="w-full p-4 bg-gray-800 rounded-lg"
+  required
+/>
           <button
             type="submit"
             disabled={loading}
