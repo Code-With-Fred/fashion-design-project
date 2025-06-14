@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
@@ -8,48 +7,48 @@ const projects = [
     desc: "A React-based viewer to fetch and display the current price of cryptocurrencies.",
     tech: ["React", "Tailwind"],
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Lost & Found Backend",
     desc: "Node.js + MongoDB backend for campus lost and found system.",
     tech: ["Node.js", "Express", "MongoDB"],
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Weather App",
     desc: "A simple weather checker using API integration.",
     tech: ["HTML", "CSS", "JavaScript", "OpenWeather API"],
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Fintech App",
     desc: "A simple transactional website.",
     tech: ["react", "tailwind css", "node js"],
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Working on a big project",
     desc: "A website .",
     tech: ["react", "tailwind css", "node js"],
     live: "#",
-    code: "#"
+    code: "#",
   },
   {
     title: "Currently building e-commerce website",
     desc: "A simple transactional website.",
     tech: ["react", "tailwind css", "node js"],
-    live: "#", 
-    code: "#"
-  }
+    live: "#",
+    code: "#",
+  },
 ];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const ProjectSection = () => {
@@ -80,19 +79,34 @@ const ProjectSection = () => {
             className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-6 rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500 hover:rotate-1"
           >
             <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.desc}</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              {project.desc}
+            </p>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map((t, i) => (
-                <span key={i} className="bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-full">
+                <span
+                  key={i}
+                  className="bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-full"
+                >
                   {t}
                 </span>
               ))}
             </div>
             <div className="flex justify-between items-center">
-              <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline text-sm flex items-center gap-1">
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline text-sm flex items-center gap-1"
+              >
                 Live <FaExternalLinkAlt />
               </a>
-              <a href={project.code} target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-gray-200 hover:underline text-sm flex items-center gap-1">
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-800 dark:text-gray-200 hover:underline text-sm flex items-center gap-1"
+              >
                 Code <FaGithub />
               </a>
             </div>

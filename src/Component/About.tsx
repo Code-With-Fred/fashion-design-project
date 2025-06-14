@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import me from "../assets/react.svg"; // replace with your image
 
