@@ -1,31 +1,54 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
+import '../App.css'
+import 'swiper'
+// Swiper styles
+
+
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// Swiper v8+ includes all necessary styles in the bundle
+import "swiper/css/pagination"; // Removed because module not found; Swiper v8+ includes pagination styles in main CSS
 import { FaLaptopCode, FaMobileAlt, FaServer, FaPaintBrush, FaCode, FaCogs } from "react-icons/fa";
+import type { ReactElement } from "react";
+
+interface Service {
+  icon: ReactElement;
+  title: string;
+  desc: string;
+}
 
 const Services = () => {
-  const services = [
+  const services: Service[] = [
     {
-      icon: <FaLaptopCode />, title: "Web Development", desc: "Full-stack development with modern frameworks and technologies."
+      icon: <FaLaptopCode />,
+      title: "Web Development",
+      desc: "Full-stack development with modern frameworks and technologies."
     },
     {
-      icon: <FaMobileAlt />, title: "Mobile Development", desc: "Cross-platform mobile apps using Flutter and React Native."
+      icon: <FaMobileAlt />,
+      title: "Mobile Development",
+      desc: "Cross-platform mobile apps using Flutter and React Native."
     },
     {
-      icon: <FaServer />, title: "Backend Engineering", desc: "Node.js, Express, MongoDB, and cloud deployment."
+      icon: <FaServer />,
+      title: "Backend Engineering",
+      desc: "Node.js, Express, MongoDB, and cloud deployment."
     },
     {
-      icon: <FaPaintBrush />, title: "UI/UX Design", desc: "Pixel-perfect, user-centered interface and experience design."
+      icon: <FaPaintBrush />,
+      title: "UI/UX Design",
+      desc: "Pixel-perfect, user-centered interface and experience design."
     },
     {
-      icon: <FaCode />, title: "Smart Contracts", desc: "Secure, gas-optimized smart contracts for Web3 dApps."
+      icon: <FaCode />,
+      title: "Smart Contracts",
+      desc: "Secure, gas-optimized smart contracts for Web3 dApps."
     },
     {
-      icon: <FaCogs />, title: "Automation Scripting", desc: "Task automation using Python, Shell, and backend logic."
-    },
+      icon: <FaCogs />,
+      title: "Automation Scripting",
+      desc: "Task automation using Python, Shell, and backend logic."
+    }
   ];
 
   return (

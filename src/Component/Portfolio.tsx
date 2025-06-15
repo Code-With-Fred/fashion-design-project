@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
 import "../App.css";
-// import me from "../assets/react.svg";
 import me from '../assets/react.svg';
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import logo from "../assets/react.svg";
 
@@ -19,6 +20,11 @@ const Portfolio = () => {
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const x = useMotionValue(darkMode ? 40 : 0);
+  useEffect(() => {
+    x.set(darkMode ? 40 : 0);
+  }, [darkMode]);
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -33,17 +39,19 @@ const Portfolio = () => {
       {/* Toggle */}
       <div className="flex justify-end px-6 py-4">
         <div
+          role="button"
+          aria-label="Toggle Dark Mode"
           onClick={() => setDarkMode(!darkMode)}
           className={`w-20 h-10 flex items-center ${
             darkMode ? "bg-gray-700" : "bg-gray-300"
           } rounded-full p-1 cursor-pointer transition`}
         >
-          <motion.div
-            className="w-8 h-8 bg-white rounded-full shadow-md"
-            layout
-            transition={spring}
-            style={{ x: darkMode ? 40 : 0 }}
-          />
+      <motion.div
+  className="w-8 h-8 bg-white rounded-full shadow-md"
+  layout
+/>
+
+
         </div>
       </div>
 
@@ -51,7 +59,6 @@ const Portfolio = () => {
       <nav className="sticky top-0 z-50 bg-white dark:bg-slate-950 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            {/* Logo */}
             <div className="flex items-center">
               <img
                 src={logo}
@@ -60,7 +67,6 @@ const Portfolio = () => {
               />
             </div>
 
-            {/* Desktop Menu */}
             <ul className="hidden md:flex justify-center gap-6 font-semibold text-lg text-black dark:text-gray-200">
               {["Home", "About", "Services", "Projects", "Skill", "Contact"].map((section) => (
                 <li key={section}>
@@ -74,7 +80,6 @@ const Portfolio = () => {
               ))}
             </ul>
 
-            {/* Mobile Menu Toggle */}
             <div
               className="md:hidden flex items-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -83,7 +88,6 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <ul className="md:hidden flex flex-col items-center gap-4 py-4 font-semibold text-lg text-black dark:text-gray-200">
               {["Home", "About", "Services", "Projects", "Skill", "Contact"].map((section) => (
@@ -129,8 +133,6 @@ const Portfolio = () => {
           <button className="bg-blue-800 hover:bg-blue-700 text-white rounded-2xl px-6 py-3 transition duration-300">
             Explore my projects
           </button>
-
-          
         </div>
 
         <div>
