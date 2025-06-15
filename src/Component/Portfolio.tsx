@@ -7,11 +7,11 @@ import { motion, useMotionValue } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import logo from "../assets/react.svg";
 
-const spring = {
-  type: "spring",
-  stiffness: 700,
-  damping: 30,
-};
+// const spring = {
+//   type: "spring",
+//   stiffness: 700,
+//   damping: 30,
+// };
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(() => {
